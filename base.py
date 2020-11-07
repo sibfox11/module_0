@@ -33,8 +33,7 @@ def game_core_v3(number):
     
     predict = (up_border - low_border) // 2
     while number != predict:
-        #print('Predict={} l_border={} u_border={}'.format(predict,low_border,up_border))
-        print(f"Predict={predict} low_border={low_border} up_border={up_border}")
+        #print(f"Predict={predict} low_border={low_border} up_border={up_border}")
         count += 1
         
         if number > predict:
@@ -47,7 +46,7 @@ def game_core_v3(number):
         if count > 101: #Ограничиваем число попыток , если что-то пойдет не так.
             break
 			
-    print('Загаданное число=',predict)
+    #print('Загаданное число=',predict)
     return(count) # выход из цикла, если угадали
 
 
