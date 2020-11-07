@@ -21,22 +21,23 @@ def game_core_v3(number):
     Функция принимает загаданное число и возвращает число попыток'''
     
     count = 1
-    l_border = 0 # Нижняя граница диапазона,не входит в диапазон, упрощаем алгоритм.
+    l_border = 0 # Нижняя граница диапазона,не входит в диапазон, за счет этого упрощаем алгоритм.
     u_border = 101 #Верхняя граница диапазона, по традиции, не входит в диапазон 
     
     
-    predict = (u_border - l_border)//2
+    predict = (u_border - l_border) // 2
+	
     while number != predict:
         print('Predict={} l_border={} u_border={}'.format(predict,l_border,u_border))
         count += 1
         
         if number > predict:
             l_border = predict
-            predict += (u_border - l_border)//2
+            predict += (u_border - l_border) // 2
             #predict += 1
         elif number < predict: 
             u_border=predict
-            predict -= (u_border - l_border)//2
+            predict -= (u_border - l_border) // 2
         if count > 101:
             break
     print('Загаданное число=',predict)
