@@ -21,7 +21,7 @@ def game_core_v3(number):
     Функция принимает загаданное число и возвращает число попыток'''
     
     count = 1
-    low_border = 0 # Нижняя граница диапазона,не входит в диапазон, упрощаем алгоритм.
+    low_border = 0 # Нижняя граница диапазона,не входит в диапазон.
     up_border = 101 #Верхняя граница диапазона, по традиции, не входит в диапазон 
     
     if number >= up_border:
@@ -40,12 +40,13 @@ def game_core_v3(number):
         if number > predict:
             low_border = predict
             predict += (up_border - low_border) // 2
-            #predict += 1
         elif number < predict: 
             up_border=predict
             predict -= (up_border - low_border) // 2
-        if count > 101:
+			
+        if count > 101: #Ограничиваем число попыток , если что-то пойдет не так.
             break
+			
     print('Загаданное число=',predict)
     return(count) # выход из цикла, если угадали
 
