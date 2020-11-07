@@ -17,31 +17,38 @@ def game_core_v2(number):
 #Усовершенствованна функция угадывания
 def game_core_v3(number):
     '''В отличие от v2 не просто предлагаем случайное число в качестве ответа, а берем середину диапазона, в котором загадано число, 
-	тем самым вдвое уменьшая этот диапазон при каждой попытке.
+    тем самым вдвое уменьшая этот диапазон при каждой попытке.
     Функция принимает загаданное число и возвращает число попыток'''
     
     count = 1
-    l_border = 0 # Нижняя граница диапазона,не входит в диапазон, за счет этого упрощаем алгоритм.
-    u_border = 101 #Верхняя граница диапазона, по традиции, не входит в диапазон 
+    low_border = 0 # Нижняя граница диапазона,не входит в диапазон, упрощаем алгоритм.
+    up_border = 101 #Верхняя граница диапазона, по традиции, не входит в диапазон 
     
+    if number >= up_border:
+        print('Загаданное число больше верхней границы диапазона.')
+        return(0)
+    if number <= low_border:
+        print('Загаданное число меньше нижней границы диапазона.')
+        return(0)
     
-    predict = (u_border - l_border) // 2
-	
+    predict = (up_border - low_border) // 2
     while number != predict:
-        print('Predict={} l_border={} u_border={}'.format(predict,l_border,u_border))
+        #print('Predict={} l_border={} u_border={}'.format(predict,low_border,up_border))
+        print(f"Predict={predict} low_border={low_border} up_border={up_border}")
         count += 1
         
         if number > predict:
-            l_border = predict
-            predict += (u_border - l_border) // 2
+            low_border = predict
+            predict += (up_border - low_border) // 2
             #predict += 1
         elif number < predict: 
-            u_border=predict
-            predict -= (u_border - l_border) // 2
+            up_border=predict
+            predict -= (up_border - low_border) // 2
         if count > 101:
             break
     print('Загаданное число=',predict)
     return(count) # выход из цикла, если угадали
+
 
 
 def score_game(game_core):
