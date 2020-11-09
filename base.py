@@ -8,7 +8,7 @@ def game_core_v3(number):
     
     count = 1 #счетчик попыток
     low_border = 0 # Нижняя граница диапазона,не входит в диапазон.
-    up_border = 101 #Верхняя граница диапазона, по традиции, не входит в диапазон 
+    up_border = 101 # Верхняя граница диапазона, по традиции, не входит в диапазон 
     
     if number >= up_border:
         print('Загаданное число больше верхней границы диапазона.')
@@ -17,7 +17,7 @@ def game_core_v3(number):
         print('Загаданное число меньше нижней границы диапазона.')
         return(0)
     
-    predict = (up_border - low_border) // 2 #получаем середину диапазона
+    predict = (up_border - low_border) // 2 # получаем середину диапазона
     while number != predict:
         #print(f"Predict={predict} low_border={low_border} up_border={up_border}")
         count += 1
