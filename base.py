@@ -29,7 +29,7 @@ def game_core_v3(number):
             up_border=predict # сдвигаем верхнюю границу
             predict -= (up_border - low_border) // 2
 			
-        if count > 101: #Ограничиваем число попыток , если что-то пойдет не так.
+        if count > 101: # Ограничиваем число попыток , если что-то пойдет не так.
             break
 			
     return(count) # выход из цикла, если угадали
